@@ -1,0 +1,36 @@
+server:
+  port: 8093
+#加载环境的配置信息已sit开头的properties文件
+spring:
+  profiles:
+    active: prd
+
+#配置上下文
+#server.context-path=/lszt
+#数据库连接信息
+  datasource:
+        name: lszt
+        url: jdbc:mysql://127.0.0.1:3306/lszt?useUnicode=true&characterEncoding=utf-8
+        username: root
+        password: wawzj7788
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+
+
+#activemq     
+  activemq:
+    broker-url: tcp://127.0.0.1:61616
+    user: admin
+    password: admin

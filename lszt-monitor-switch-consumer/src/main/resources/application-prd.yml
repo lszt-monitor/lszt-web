@@ -1,0 +1,88 @@
+#mybatis 下划线转驼峰 映射配置  有了这个不用写xml映射
+mybatis: 
+  configuration: 
+    map-underscore-to-camel-case: true
+   
+server:
+  port: 8094
+#注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.3.222:8092/eureka/
+ #注册名称   
+  #注册名称     
+spring:
+  application:
+    name: user
+#数据库连接信息
+  datasource:
+        name: lszt
+        url: jdbc:mysql://192.168.3.222:3306/lszt?useUnicode=true&characterEncoding=utf-8
+        username: root
+        password: wawzj7788
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+################Redis
+#连接第0个库
+  redis:
+    database: 3
+#连接的地址
+    host: 192.168.3.222
+
+ #超时时间：单位ms
+    timeout: 3000
+#端口号
+    port: 6379
+#授权密码
+#redis.password=123456
+##最大连接数：能够同时建立的“最大链接个数”
+    pool:
+      maxActive: 2000
+#最大空闲数：空闲链接数大于maxIdle时，将进行回收
+      maxIdle: 200
+ #最小空闲数：低于minIdle时，将创建新的链接
+      minIdle: 200
+ #最大等待时间：单位ms
+      maxWait: 1000
+#使用连接时，检测连接是否成功
+      testOnBorrow: true
+ #返回连接时，检测连接是否成功
+      testOnReturn: true
+#activemq     
+  activemq:
+    broker-url: tcp://192.168.3.222:61616
+    user: admin
+    password: admin
+    mail:
+        host: smtp.163.com  #163测试服务器
+        username: lsztswitch@163.com
+        password: wawzj7788      #授权码
+        default-encoding: UTF-8
+        enable: true
+        smtp:
+          auth: true
+          port: 25
+        starttls:
+          enable: true
+          required: true
+
+
+    
+  #分页的配置
+pagehelper:
+  offset-as-page-num: true
+  row-bounds-with-count: true
+  reasonable: true

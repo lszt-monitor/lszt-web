@@ -1,0 +1,12 @@
+server:
+  port: 8092
+#加载环境的配置信息已sit开头的properties文件
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    preferIpAddress: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

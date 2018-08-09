@@ -1,0 +1,18 @@
+server:
+  port: 8092
+#加载环境的配置信息已sit开头的properties文件
+#server端配置：
+eureka:
+   server:
+        enableSelfPreservation: false  #设为false，关闭自我保护主要
+        evictionIntervalTimerInMs: 4000  #清理间隔（单位毫秒，默认是60*1000）
+   client:    
+     instance:
+        leaseRenewalIntervalInSeconds: 10
+        leaseExpirationDurationInSeconds: 30
+        registerWithEureka: false
+        fetchRegistry: false
+        serviceUrl:
+        defaultZone: http://127.0.0.1:${server.port}/eureka/     
+  
+ 

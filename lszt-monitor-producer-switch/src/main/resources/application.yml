@@ -1,0 +1,40 @@
+#注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8091/eureka/
+      
+spring:
+  application:
+    name: producer-switch
+   #加载环境的配置信息已prd开头的properties文件
+  profiles:
+    active: prd
+
+      
+  #数据库连接信息
+  datasource:
+        name: lszt
+        url: jdbc:mysql://127.0.0.1:3306/lszt?useUnicode=true&characterEncoding=utf-8
+        username: root
+        password: wawzj7788
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+  ##activemq连接信息
+  activemq:
+    broker-url: tcp://192.168.32.155:61616
+    in-memory: true
+    pool:
+      enabled: false
