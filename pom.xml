@@ -179,13 +179,13 @@
 	<!--pom.xml 远程仓库的配置  id要跟本地maven的setting.xml相同 -->
 	<distributionManagement>
 		<repository>
-			<id>ceh</id>
+			<id>ceh-releases</id>
 			<name>Ruizhi Release Repository</name>
 			<url>http://192.168.3.222:8081/repository/maven-releases/</url>
 		</repository>
 
 		<snapshotRepository>
-			<id>ceh</id>
+			<id>ceh-snapshots</id>
 			<name>Ruizhi Snapshot Repository</name>
 			<url>http://192.168.3.222:8081/repository/maven-snapshots/</url>
 		</snapshotRepository>
